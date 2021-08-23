@@ -24,10 +24,10 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
       with:
-        registries: 563616081143
+        registries: p7w3e1x7
 
     - name: Update jupyter dependencies with repo2docker
       uses: jupyterhub/repo2docker-action@master
       with:
         DOCKER_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_NAME: "gigitest/test-repo2docker-action"
+        IMAGE_NAME: "gigitest/test-repo2docker-action-public"
