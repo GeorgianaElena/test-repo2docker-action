@@ -23,10 +23,10 @@ jobs:
     - name: Login to ECR
       uses: docker/login-action@v1
       with:
-        registry: "563616081143.dkr.ecr.us-east-2.amazonaws.com"
+        registry: "public.ecr.aws/p7w3e1x7"
     
     - name: Update jupyter dependencies with repo2docker
       uses: jupyterhub/repo2docker-action@master
       with:
-        DOCKER_REGISTRY: "563616081143.dkr.ecr.us-east-2.amazonaws.com"
-        IMAGE_NAME: "robo/test-private"
+        DOCKER_REGISTRY: "public.ecr.aws/p7w3e1x7"
+        IMAGE_NAME: "gigitest/test-repo2docker-action-public"
