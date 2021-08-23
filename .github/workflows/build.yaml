@@ -24,7 +24,7 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
       with:
-        registries: p7w3e1x7
+        registries: "p7w3e1x7"
 
     - name: Update jupyter dependencies with repo2docker
       uses: jupyterhub/repo2docker-action@master
