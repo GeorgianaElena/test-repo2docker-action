@@ -8,8 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_CONFIG: $HOME/.docker
     steps:
-
     - name: checkout files in repo
       uses: actions/checkout@main
 
