@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_CONFIG: $HOME/.docker
 
     steps:
     - name: checkout files in repo
@@ -18,12 +20,13 @@ jobs:
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
+        service_account_email: ${{ secrets.GCP_SA_EMAIL }}
         export_default_credentials: true
     
     # Configure docker to use the gcloud command-line tool as a credential helper
-    - name: Configure docker
-      run: |
-        gcloud auth configure-docker -q
+    #- name: Configure docker
+    #  run: |
+    #    gcloud auth configure-docker -q
         
     - name: Update jupyter dependencies with repo2docker
       uses: jupyterhub/repo2docker-action@master
