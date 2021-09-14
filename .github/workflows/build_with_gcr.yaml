@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DOCKER_CONFIG: $HOME/.docker
+      PROJECT_ID: ${{ secrets.PROJECT_ID }}
     steps:
     - name: checkout files in repo
       uses: actions/checkout@main
@@ -25,4 +26,4 @@ jobs:
       uses: jupyterhub/repo2docker-action@master
       with:
         DOCKER_REGISTRY: eu.gcr.io
-        IMAGE_NAME: "${{ secrets.GCP_PROJECT_ID }}/test-repo2docker-action"
+        IMAGE_NAME: $PROJECT_ID/test-repo2docker-action
