@@ -26,4 +26,4 @@ jobs:
       uses: jupyterhub/repo2docker-action@master
       with:
         DOCKER_REGISTRY: eu.gcr.io
-        IMAGE_NAME: $PROJECT_ID/test-repo2docker-action
+        IMAGE_NAME: ${{ secrets.GCP_PROJECT_ID }}/test-repo2docker-action
