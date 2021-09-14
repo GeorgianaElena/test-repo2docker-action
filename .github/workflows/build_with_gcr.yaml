@@ -8,8 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      DOCKER_CONFIG: $HOME/.docker
+    #env:
+    #  DOCKER_CONFIG: $HOME/.docker
 
     steps:
     - name: checkout files in repo
