@@ -28,7 +28,7 @@ jobs:
       with:
         registry: gcr.io
         username: _json_key
-        password: ${{ secrets.GCR_JSON_KEY }}
+        password: ${{ secrets.GCP_SA_KEY }}
             
 #     Configure docker to use the gcloud command-line tool as a credential helper
     - name: Configure docker
