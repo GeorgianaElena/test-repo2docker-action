@@ -31,10 +31,10 @@ jobs:
         password: ${{ secrets.GCP_SA_KEY }}
             
 #     Configure docker to use the gcloud command-line tool as a credential helper
-    - name: Configure docker
-      run: |
-        gcloud auth configure-docker
-        gcloud info
+#     - name: Configure docker
+#       run: |
+#         gcloud auth configure-docker
+#         gcloud info
         
     - name: Update jupyter dependencies with repo2docker
       uses: jupyterhub/repo2docker-action@master
