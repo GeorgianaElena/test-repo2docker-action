@@ -1,0 +1,32 @@
+name: Build container image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_CONFIG: $HOME/.docker
+
+    steps:
+    - name: checkout files in repo
+      uses: actions/checkout@main
+    
+#     - uses: azure/docker-login@v1
+#       with:
+#         login-server: 'testaction.azurecr.io'
+#         username: ${{ secrets.ACR_USERNAME }}
+#         password: ${{ secrets.ACR_PASSWORD }}
+        
+    - name: Update jupyter dependencies with repo2docker
+      uses: jupyterhub/repo2docker-action@master
+      with:
+        DOCKER_USERNAME: ${{ secrets.ACR_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.ACR_PASSWORD }}
+        DOCKER_REGISTRY: "azurecr.io"
+        IMAGE_NAME: "testaction"
+
+    
