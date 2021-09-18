@@ -1,9 +1,7 @@
 name: Build container image
 
 on:
-  push:
-    branches:
-      - main
+  pull_request
 
 jobs:
   build:
@@ -14,13 +12,7 @@ jobs:
     steps:
     - name: checkout files in repo
       uses: actions/checkout@main
-    
-#     - uses: azure/docker-login@v1
-#       with:
-#         login-server: ${{ secrets.LOGIN_SERVER }}
-#         username: ${{ secrets.ACR_USERNAME }}
-#         password: ${{ secrets.ACR_PASSWORD }}
-        
+
     - name: Update jupyter dependencies with repo2docker
       uses: jupyterhub/repo2docker-action@master
       with:
@@ -28,5 +20,3 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.ACR_PASSWORD }}
         DOCKER_REGISTRY: ${{ secrets.LOGIN_SERVER }}
         IMAGE_NAME: "test-image"
-
-    
