@@ -17,14 +17,14 @@ jobs:
     
     - uses: azure/docker-login@v1
       with:
-        login-server: 'testaction.azurecr.io'
+        login-server: ${{ secrets.LOGIN_SERVER }}
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
         
     - name: Update jupyter dependencies with repo2docker
       uses: jupyterhub/repo2docker-action@master
       with:
-        DOCKER_REGISTRY: "azurecr.io"
-        IMAGE_NAME: "testaction/test"
+        DOCKER_REGISTRY: ${{ secrets.LOGIN_SERVER }}
+        IMAGE_NAME: "test-image"
 
     
